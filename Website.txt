@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dream Cars</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.wrapper {
+  background-color: rgba(245, 245, 245, 0.7);
+  padding: 1rem 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+header {
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.intro {
+  padding: 1.5rem 1.5rem;
+  max-width: 1000px;
+}
+
+.intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  color: #333;
+}
+
+.car-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 1.5rem 3rem;
+  max-width: 100%;
+}
+
+.car {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(230, 230, 230, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  cursor: pointer;
+  animation: tapScale 0.3s ease-in-out;
+}
+
+.car:active {
+  animation: tapScale 0.3s ease-in-out;
+}
+
+@keyframes tapScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.car.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.car:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.car img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+.car-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.car-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #000;
+}
+
+.car-info p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+.top-pick {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #000;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 6px;
+  z-index: 1;
+  letter-spacing: 0.5px;
+}
+
+.click-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  max-width: 80%;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+  z-index: 2;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 2rem 1.5rem;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  margin: 0;
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .car {
+    flex-direction: column;
+  }
+  .car:nth-child(even) {
+    flex-direction: column;
+  }
+  .car img, .car-info {
+    width: 100%;
+  }
+  .car-info {
+    padding: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">O</div>
+      <h1>My Dream Cars</h1>
+    </header><section class="intro">
+  <p>Welcome to my collection of dream rides — a carefully selected lineup of machines that blend raw performance with beautiful design. From rugged powerhouses to sleek luxury icons, this is the garage I’m always dreaming about.</p>
+</section>
+
+<section class="car-list">
+  <div class="car" onclick="showBubble(this, 'I don\'t know why she likes this car, because she\'s too tiny for this car 😂')">
+    <div class="top-pick">Top Pick</div>
+    <img src="ford-raptor.jpg" alt="Ford Raptor" />
+    <div class="car-info">
+      <h2>Ford Raptor (Phiwe's favourites🥰🤭)</h2>
+      <p>Big. Bold. Built to handle any road or no road at all.</p>
+      <span class="click-hint">(Tap to see why 💬)</span>
+    </div>
+  </div>
+
+  <div class="car">
+    <img src="amg-gt63.jpg" alt="AMG GT63S 4-Door" />
+    <div class="car-info">
+      <h2>Mercedes-AMG GT63 S 4-Door</h2>
+      <p>Smooth, fast, and full of attitude.</p>
+    </div>
+  </div>
+
+  <div class="car">
+    <img src="bmw-m4.jpg" alt="BMW M3 & M4" />
+    <div class="car-info">
+      <h2>BMW M3 & M4 (New)</h2>
+      <p>Sharp looks. Wild power. Perfect for pure driving fun.</p>
+    </div>
+  </div>
+
+  <div class="car" onclick="showBubble(this, 'I just know she\'s gonna look attractive in this car and she knows it. 😉')">
+    <img src="g63.jpg" alt="G Wagon" />
+    <div class="car-info">
+      <h2>Mercedes-Benz G-Wagon (Phiwe's favourites🥰🤭)</h2>
+      <p>Tough on the outside. Fancy on the inside. A boss car.</p>
+      <span class="click-hint">(Tap to see why 💬)</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Created with passion by Ofentse © 2025</p>
+</footer>
+
+  </div>  <script>
+    const cars = document.querySelectorAll('.car');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cars.forEach(car => observer.observe(car));
+
+    function showBubble(element, message) {
+      const existing = element.querySelector('.bubble');
+      if (existing) existing.remove();
+
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = message;
+      element.appendChild(bubble);
+
+      setTimeout(() => {
+        bubble.remove();
+      }, 4000);
+    }
+  </script></body>
+</html>
