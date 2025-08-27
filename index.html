@@ -1,5 +1,4 @@
- <!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,58 +12,55 @@
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       overflow-x: hidden;
-    }
+    }@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+.floating {
+  position: fixed;
+  top: -10%;
+  font-size: 2rem;
+  animation: float 15s linear infinite;
+  opacity: 0.8;
+}
 
-    .floating {
-      position: fixed;
-      top: -10%;
-      font-size: 2rem;
-      animation: float 15s linear infinite;
-      opacity: 0.8;
-    }
+@keyframes float {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(120vh) translateX(20vw); }
+}
 
-    @keyframes float {
-      from { transform: translateY(0) translateX(0); }
-      to { transform: translateY(120vh) translateX(20vw); }
-    }
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
+.music-bar {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
-    /* Fancy music bar at the top */
-    .music-bar {
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid white;
-      border-radius: 20px;
-      padding: 10px;
-      margin: 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
+.music-bar audio {
+  width: 100%;
+  outline: none;
+  filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.2));
+}
 
-    .music-bar audio {
-      width: 100%;
-      outline: none;
-      filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.2));
-    }
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    ./* UPDATED: Make message box longer */
+/* UPDATED: Make message box longer */
 .message-box {
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid white;
@@ -75,82 +71,75 @@
   overflow-y: auto;
   text-align: left;
   font-size: 1.1rem;
-    }
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 20px;
-    }
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
 
-    .image-container {
-      position: relative;
-    }
+.image-container {
+  position: relative;
+}
 
-    .image-container img {
-      width: 100%;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+.image-container img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-    .image-container img:hover {
-      transform: scale(1.05);
-    }
+.image-container img:hover {
+  transform: scale(1.05);
+}
 
-    .popup-message {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%) scale(0);
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      transition: transform 0.3s ease;
-      pointer-events: none;
-    }
+.popup-message {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
 
-    .image-container.active .popup-message {
-      transform: translateX(-50%) scale(1);
-    }
+.image-container.active .popup-message {
+  transform: translateX(-50%) scale(1);
+}
 
-    footer {
-      margin-top: 25px;
-      font-size: 0.9rem;
-    }
+footer {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
 
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-      h1 { font-size: 1.6rem; }
-      .message-box { font-size: 1rem; max-height: 200px; }
-      .gallery { grid-template-columns: 1fr; }
-    }
+@media (max-width: 600px) {
+  h1 { font-size: 1.6rem; }
+  .message-box { font-size: 1rem; max-height: 80vh; }
+  .gallery { grid-template-columns: 1fr; }
+}
+
   </style>
 </head>
 <body>
-  <!-- Floating background icons -->
   <div class="floating" style="left:10%;">🐶</div>
   <div class="floating" style="left:30%; animation-delay: 3s;">🍿</div>
   <div class="floating" style="left:50%; animation-delay: 6s;">📚</div>
   <div class="floating" style="left:70%; animation-delay: 9s;">🍰</div>
-  <div class="floating" style="left:85%; animation-delay: 12s;">❤️</div>
-
-  <!-- Music bar at the top -->
-  <div class="music-bar">
+  <div class="floating" style="left:85%; animation-delay: 12s;">❤️</div>  <div class="music-bar">
     <audio controls autoplay loop>
       <source src="WhatsApp Audio 2025-08-25 at 14.07.39.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-  </div>
-
-  <div class="container">
-    <h1>Happy Birthday Phiweee! 🎉</h1>
-
-    <div class="message-box">
-   Welcome to something made just for you. It’s not perfect, but it’s real. Just like your smile.😘💖
+  </div>  <div class="container">
+    <h1>Happy Birthday Phiweee! 🎉</h1><div class="message-box">
+  <!-- unchanged message content -->
+ Welcome to something made just for you. It’s not perfect, but it’s real. Just like your smile.😘💖
 </p>
 Now you probably won't remember this, but I asked for your email address a few months ago. You never asked why, which surprised me🤔. Welllll, I wanted it because I wanted to send this through email, since I can't physically give you a gift this year, so I wanted to be creative, and the idea that came to mind was to make you a website for your birthday. The problem was that I had no idea how to make a website, so I had to teach myself how to do it first and wow, I wasn't expecting it to be this hard to make, not gonna lie.😭I had no idea what I was doing half the time. Still, by then, I was already committed to making this website🥲, so I wasn't giving up if it meant it was for you😤💗.  
 </p>
@@ -165,24 +154,52 @@ And actually, this is gonna sound crazy, there are moments I've wanted just to c
 </p>
 Another thing, I know you're gonna probably go to university next year, and I can't lie, I'm excited for you. You're gonna kill it there, no doubt. But if I'm gonna be real with you kancane, I'd be lying if I said I wasn't a little scared too. What if you meet some guy who sweeps you off your feet, and I'd never tell you who to like, but I just need you to know… that would sting, because you mean that much to me.
 </p>
-So today, I want to say, happy birthday to someone who's grown so beautifully through it all. I hope your day is filled with the calm you deserve, your favourite music in the background, and hopefully uthule at least upopcorn, u-ice cream noma ngisho amaWings for your birthday 😂😭❤️. And one more thing, the songs that are playing on this website are those you gave me when I asked you for a list of your favourite songs...well, some of them are, I combined your favourite songs with my favourite songs.😘❤️
+So today, I want to say, happy birthday to someone who's grown so beautifully through it all. I hope your day is filled with the calm you deserve, your favourite music in the background, you told that you think your birthday is gonna be boring so i hope uzothola at least upopcorn, u-ice cream noma ngisho amaWings for your birthday😂😭❤️. And one more thing, the songs that are playing on this website are those you gave me when I asked you for a list of your favourite songs...well, some of them are, I combined your favourite songs with my favourite songs.😘❤️
 </p>
 </p>
-               Below are pictures of you. I want you to tap on each image.
+               Below are pictures of you. I want you to tap on each 
+</div>
 
-    
-    </div>
+ <div class="gallery">
+      <div class="image-container" onclick="toggleMessage(this)">
+        <img src="phiweee.jpg" alt="Memory 1">
+        <div class="popup-message">When you finally had your hair done after months of plannig😭And i gotta say you really looked beautifull❤️</div>
+      </div>
 
-    <footer>
-      Made with 💖 by someone who can’t stop smiling when it’s about you.
-    </footer>
-  </div>
+      <div class="image-container" onclick="toggleMessage(this)">
+        <img src="ph.jpg" alt="Memory 2">
+        <div class="popup-message">This after you got finally got your hands on those products🥲 and your confidence was shining 💭</div>
+      </div>
 
-  <script>
+      <div class="image-container" onclick="toggleMessage(this)">
+        <img src="phiwe 1.jpg" alt="Memory 3">
+        <div class="popup-message">Ahh yes, the hoodie i got you 366 days ago. Seeing you in that hoodie makes happy, it's like that hoodie found the perfect home.😍😊 </div>
+      </div>
+
+      <div class="image-container" onclick="toggleMessage(this)">
+        <img src="phiwe (1).jpg" alt="Memory 4">
+        <div class="popup-message">One day or day one? The start of your desired glow up😅😤It's pretty obvious that the results are showing😘</div>
+      </div>
+
+       <div class="image-container" onclick="toggleMessage(this)">
+        <img src="phiwe (5).jpg" alt="Memory 3">
+        <div class="popup-message">The very first photo of you that you sent to me lol. Funny how one  simple photo can turn into the start of everything🥲❤️</div>
+      </div>
+
+       <div class="image-container" onclick="toggleMessage(this)">
+        <img src="phiwe (7).jpg" alt="Memory 3">
+        <div class="popup-message">This one just added it here because i think it's funny😭😂</div>
+      </div>
+</div>
+
+<footer>
+  Made with 💖 by someone who can’t stop smiling when it’s about you.
+</footer>
+
+  </div>  <script>
     function toggleMessage(container) {
       container.classList.toggle('active');
     }
-  </script>
-</body>
+  </script></body>
 </html>
 
